@@ -3,11 +3,33 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
+    <title>Adatok</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <p><%= message %></p>
+    <header class="justify-content-center container">
+        <h1>Fizetés</h1>
+        <hr>
+    </header>
+    <main class="justify-content-center container">
+        <form action="/megadas" method="post" class="">
+            <div class="form-group">
+                <label for="nev" class="">Név: </label><br>
+                <input type="text" name="nev" id="" value="<%=data.nev%>" placeholder="Név"><br>
+                <label for="bankszamla" class="">Bankkartyaszám: </label><br>
+                <input type="text" name="bankszamla" id="" value="<%=data.bankszamla%>" placeholder="12345678-12345678"><br>
+                <label for="szerzodesiFeltet" class="">Elfogadom a szerződési feltételeket: </label><br>
+                <input type="checkbox" name="szerzodesiFeltet" id=""><br>
+                <ul style="list-style: none;">
+                    <% errors.forEach(function(error) { %>
+                      <li class="alert alert-danger"><%= error %></li>
+                    <% }); %>
+                </ul><br>
+                <input class="btn btn-primary" type="submit" value="Fizetés" id="">
+            </div>
+        </form>
+    </main>
 </body>
 </html>
